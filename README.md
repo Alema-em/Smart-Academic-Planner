@@ -1,18 +1,17 @@
-## Getting Started
+## Smart Acadeic Planner & Grade Tracker
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A modern Java application to help students organize courses, assessments and track academic progress with ease.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+-Tabbed Dashboard: Switch between Courses, Assessments and Dashboard views.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+-Course Management: Add, edit, and view courses with fields for code, title, credits and instructor.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+-Assessment Tracking: Organize assignments, quizzes and exams for each course.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+-Student Login: Simple login dialog for personalized experience.
 
-## Dependency Management
+-Modern UI: Themed panels, center-aligned forms and smooth layout.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+

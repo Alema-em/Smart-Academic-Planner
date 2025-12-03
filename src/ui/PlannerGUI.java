@@ -17,7 +17,7 @@ class BackgroundPanel extends JPanel {
         if (icon != null) {
             this.bgImage = icon.getImage();
         } else {
-            this.bgImage = null; // fallback: no image
+            this.bgImage = null; 
         }
         setLayout(new BorderLayout());
     }
@@ -139,34 +139,29 @@ private JPanel buildCoursesPanel() {
     ImageIcon bgIcon = safeIcon("/images/Dash.png", 960, 660);
     BackgroundPanel bgPanel = new BackgroundPanel(bgIcon);
     bgPanel.setLayout(new BorderLayout());
-    // small outer margin; adjust if needed
-    //bgPanel.setBorder(BorderFactory.createEmptyBorder(0, 80, 40, 80));
+    
    bgPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
 
     JPanel card = new JPanel(new BorderLayout());
-card.setOpaque(false);                             // let background show through
+card.setOpaque(false);                             
 card.setBorder(BorderFactory.createEmptyBorder(
-        40,   // top gap
-        80,   // left
-        40,   // bottom gap (same as top)
-        80    // right
+        40,   
+        80,   
+        40,   
+        80    
 ));
 
-   //JPanel card = new JPanel(new BorderLayout());
-//card.setOpaque(true);
-// semi‑transparent dark blue for the entire area (top + form region)
-//ard.setBackground(new Color(0, 32, 64, 190));
-//card.setBorder(BorderFactory.createEmptyBorder(20, 80, 20, 80)); // symmetric top/bottom + side padding
+   
 
 
-    // Title bar flush with top
+   
     JLabel title = new JLabel("Courses", SwingConstants.LEFT);
     title.setFont(uiFont(20, true));
     title.setForeground(Color.WHITE);
     title.setOpaque(true);
     title.setBackground(new Color(0, 32, 64));
-    title.setBorder(BorderFactory.createEmptyBorder(8, 50, 8, 0)); // left padding only
+    title.setBorder(BorderFactory.createEmptyBorder(8, 50, 8, 0)); 
     card.add(title, BorderLayout.NORTH);
 
     // Table
@@ -176,7 +171,7 @@ card.setBorder(BorderFactory.createEmptyBorder(
 
     coursesTable.setFont(uiFont(14, false));
     coursesTable.setRowHeight(26);
-    coursesTable.setBackground(new Color(245, 245, 245));   // light solid
+    coursesTable.setBackground(new Color(245, 245, 245));   
     coursesTable.setForeground(Color.BLACK);
     coursesTable.setSelectionBackground(ACC_BLUE);
     coursesTable.setSelectionForeground(Color.WHITE);
@@ -197,17 +192,17 @@ card.setBorder(BorderFactory.createEmptyBorder(
     scroll.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
     card.add(scroll, BorderLayout.CENTER);
 
-    // Bottom form area: opaque box
+    
     JPanel form = new JPanel(new GridBagLayout());
     form.setOpaque(false);
     form.setBorder(BorderFactory.createEmptyBorder(
-        0,   // top
-        180, // left  (was larger before)
-        20,  // bottom
-        260  // right
+        0,   
+        180, 
+        20,  
+        260  
 ));
-    form.setBackground(new Color(0, 32, 64));  // same as card
-    //form.setBorder(BorderFactory.createEmptyBorder(0, 260, 20, 260));
+    form.setBackground(new Color(0, 32, 64));  
+    
     GridBagConstraints gbc = new GridBagConstraints();
     gbc.insets = new Insets(6, 8, 6, 8);
     gbc.anchor = GridBagConstraints.EAST;
@@ -217,14 +212,14 @@ card.setBorder(BorderFactory.createEmptyBorder(
     JLabel creditsL = niceLabel("Credits:");
     JLabel instL    = niceLabel("Instructor:");
 
-    // solid text fields (no alpha)
+    
     JTextField codeField       = new JTextField(16);
     JTextField titleField      = new JTextField(16);
     JTextField creditsField    = new JTextField(16);
     JTextField instructorField = new JTextField(16);
     for (JTextField tf : new JTextField[]{codeField, titleField, creditsField, instructorField}) {
         tf.setFont(uiFont(15, false));
-        tf.setBackground(new Color(40, 43, 55)); // solid dark
+        tf.setBackground(new Color(40, 43, 55)); 
         tf.setForeground(Color.WHITE);
         tf.setCaretColor(Color.WHITE);
         tf.setBorder(BorderFactory.createEmptyBorder(4, 10, 4, 10));
@@ -232,12 +227,7 @@ card.setBorder(BorderFactory.createEmptyBorder(
 
     JButton addCourseBtn = niceButton("Add Course", new Color(44, 130, 201));
 
-    // BEFORE
-// gbc.gridx = 0; gbc.gridy = 0; form.add(codeL, gbc);
-// gbc.gridx = 1; ... form.add(codeField, gbc);
-// ...
-
-// AFTER – labels in column 1, fields in column 2
+    
 gbc.gridy = 0;
 gbc.gridx = 1; gbc.anchor = GridBagConstraints.EAST;  form.add(codeL, gbc);
 gbc.gridx = 2; gbc.anchor = GridBagConstraints.WEST;  form.add(codeField, gbc);
@@ -254,12 +244,12 @@ gbc.gridy = 3;
 gbc.gridx = 1; gbc.anchor = GridBagConstraints.EAST;  form.add(instL, gbc);
 gbc.gridx = 2; gbc.anchor = GridBagConstraints.WEST;  form.add(instructorField, gbc);
 
-// row 4: Add Course button aligned with fields (right side)
+
 gbc.gridy = 4;
-gbc.gridx = 1;                          // same column as the text fields
-gbc.gridwidth = 2;                      // do NOT span 2 columns
-gbc.anchor = GridBagConstraints.CENTER;   // hug the right edge of that column
-gbc.insets = new Insets(12, 90, 0, 0);   // some space above the button
+gbc.gridx = 1;                          
+gbc.gridwidth = 2;                     
+gbc.anchor = GridBagConstraints.CENTER;   
+gbc.insets = new Insets(12, 90, 0, 0);   
 form.add(addCourseBtn, gbc);
 
 
@@ -302,14 +292,14 @@ form.add(addCourseBtn, gbc);
     private JPanel buildAssessmentsPanel() {
         ImageIcon bgIcon = safeIcon("/images/Dash.png", 960, 660);
         BackgroundPanel bgPanel = new BackgroundPanel(bgIcon);
-        //bgPanel.setBorder(BorderFactory.createEmptyBorder(0, 80, 40, 80));
-        bgPanel.setBorder(BorderFactory.createEmptyBorder(20, 80, 40, 80)); // was 40,80,40,80
+        
+        bgPanel.setBorder(BorderFactory.createEmptyBorder(20, 80, 40, 80)); 
 
 
         JPanel card = new JPanel(new BorderLayout());
         card.setOpaque(true);
         card.setBackground(new Color(10, 12, 20, 200));
-        // smaller borders so more space goes to table
+        
         card.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         JPanel form = new JPanel(new GridBagLayout());
@@ -317,7 +307,7 @@ form.add(addCourseBtn, gbc);
         form.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
         GridBagConstraints gbc = new GridBagConstraints();
-        // tighter insets to shrink form height
+        
         gbc.insets = new Insets(4, 8, 4, 8);
         gbc.anchor = GridBagConstraints.EAST;
 
@@ -370,7 +360,7 @@ form.add(addCourseBtn, gbc);
         assessmentsTable = new JTable(assessmentsModel);
 
         assessmentsTable.setFont(uiFont(14, false));
-        assessmentsTable.setRowHeight(30);       // slightly taller rows
+        assessmentsTable.setRowHeight(30);       
         assessmentsTable.setBackground(new Color(40, 43, 55, 230));
         assessmentsTable.setForeground(Color.WHITE);
 
@@ -486,13 +476,13 @@ form.add(addCourseBtn, gbc);
     ImageIcon bgIcon = safeIcon("/images/Dash.png", 960, 660);
     BackgroundPanel bgPanel = new BackgroundPanel(bgIcon);
     bgPanel.setLayout(new BorderLayout());
-    // margins so the image is visible around the card
+    
     bgPanel.setBorder(BorderFactory.createEmptyBorder(0, 80, 40, 80));
 
-    // Card on top of background
+    
     JPanel card = new JPanel(new BorderLayout());
     card.setOpaque(true);
-    card.setBackground(new Color(0, 0, 0, 160));               // glass effect; use solid color if you prefer
+    card.setBackground(new Color(0, 0, 0, 160));               
     card.setBorder(BorderFactory.createEmptyBorder(0, 30, 20, 30));
 
     String[] cols = {"Course", "Credits", "Percentage", "Grade"};

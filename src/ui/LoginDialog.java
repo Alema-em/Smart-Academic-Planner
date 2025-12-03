@@ -13,23 +13,23 @@ public class LoginDialog extends JDialog {
         super(parent, "Student Login", true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        // Background label with image
+        
         JLabel bg = new JLabel();
-        bg.setLayout(null); // absolute layout
+        bg.setLayout(null); 
         ImageIcon img = loadImage("/images/login.png"); 
         if (img != null) {
             bg.setIcon(img);
             setContentPane(bg);
             setSize(img.getIconWidth(), img.getIconHeight());
         } else {
-            // fallback if image not found
+            
             setContentPane(bg);
             setSize(800, 450);
             bg.setBackground(new Color(30, 32, 40));
             bg.setOpaque(true);
         }
 
-        // Fields
+        
         nameField = new JTextField();
         idField   = new JTextField();
 
@@ -42,11 +42,9 @@ public class LoginDialog extends JDialog {
         styleLabel(idLabel);
 
         JButton okButton     = new JButton("OK");
-        //JButton cancelButton = new JButton("Cancel");
+        
         styleButton(okButton);
-        //styleButton(cancelButton);
-
-        // Adjust these bounds to match where you want them on the image
+        
         
         
 
@@ -62,7 +60,7 @@ nameField.setBounds(fieldX, nameY, fieldWidth, fieldHeight);
 idLabel.setBounds(labelX, idY - 26, fieldWidth, 22);
 idField.setBounds(fieldX, idY, fieldWidth, fieldHeight);
 
-// center under the fields
+
 int buttonWidth  = 120;
 int buttonHeight = 36;
 int okX = fieldX + (fieldWidth - buttonWidth) / 2;
@@ -70,15 +68,14 @@ int okY = idY + 60;
 
 okButton.setBounds(okX, okY, buttonWidth, buttonHeight);
 
-//okButton.setBounds(fieldX, idY + 60, 120, 36);
-        //cancelButton.setBounds(fieldX + 140, idY + 60, 120, 36);
+
 
         bg.add(nameLabel);
         bg.add(nameField);
         bg.add(idLabel);
         bg.add(idField);
         bg.add(okButton);
-        //bg.add(cancelButton);
+        
 
         okButton.addActionListener(e -> {
             if (nameField.getText().trim().isEmpty() ||
@@ -92,10 +89,7 @@ okButton.setBounds(okX, okY, buttonWidth, buttonHeight);
             }
         });
 
-        /*cancelButton.addActionListener(e -> {
-            confirmed = false;
-            dispose();
-        });*/
+        
 
         setLocationRelativeTo(parent);
     }
